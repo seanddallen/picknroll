@@ -7,12 +7,12 @@ exports.up = function(knex, Promise) {
     table.string('court_type');
     table.integer('rim_count');
     table.integer('votes').defaultsTo(0);
-    table.integer('users_id')
-     .notNullable()
-     .references('id')
-     .inTable('users')
-     .onDelete('CASCADE')
-     .index();
+    // table.integer('users_id')
+    //  .notNullable()
+    //  .references('id')
+    //  .inTable('users')
+    //  .onDelete('CASCADE')
+    //  .index();
     table.timestamps(true, true);
   })
 
