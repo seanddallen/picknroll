@@ -1,9 +1,27 @@
 //Update the name of the controller below and rename the file.
-const TEMPLATE = require("../controllers/TEMPLATE.js")
+const users = require("../controllers/users.js");
+const courts = require("../controllers/courts.js");
+const games = require("../controllers/games.js");
+const comments = require("../controllers/comments.js");
 module.exports = function(app){
 
+  app.get('/', users.loginPage);
+  app.post('/login', users.login)
+  app.post('/register', users.create);
 
-app.use(authMiddleware);
+  app.use(authMiddleware);
+
+  app.get('/courts', courts.courtsPage);
+
+  app.get('/courts/:city', courts.search);
+  app.get('/courts/new', courts.newCourt);
+  app.post('/courts/create', courts.createCourt);
+
+  app.get('courts/:id', courts.gamesPage);
+
+  app.post('games/create', games.createGame);
+
+  app.post('/comments', comments.newComment);
 
 }
 
