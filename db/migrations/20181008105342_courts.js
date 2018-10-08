@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
     table.string('court_name');
     table.string('court_address');
     table.string('court_city');
-    table.string('type');
+    table.string('court_type');
     table.integer('rim_count');
     table.integer('votes').defaultsTo(0);
     table.integer('users_id')
