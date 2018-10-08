@@ -14,10 +14,10 @@ module.exports = function(app){
   app.get('/courts', courts.courtsPage);
 
   app.get('/courts/:city', courts.search);
-  app.get('/courts/new', courts.newCourt);
+
   app.post('/courts/create', courts.createCourt);
 
-  app.get('courts/:id', courts.gamesPage);
+  app.get('courts/:id', courts.courtPage);
 
   app.post('games/create', games.createGame);
 

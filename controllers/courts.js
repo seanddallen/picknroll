@@ -9,15 +9,11 @@ module.exports = {
 
   },
 
-  newCourt: (req,res) => {
-
-  },
-
   createCourt: (req,res) => {
 
   },
 
-  gamesPage: (req,res) => {
+  courtPage: (req,res) => {
 
   }
 }

@@ -2,7 +2,7 @@ const knex = require("../db/knex.js");
 
 module.exports = {
   loginPage: (req,res) => {
-    res.render('index');
+    res.render('login');
   },
 
   login: (req,res) => {
@@ -25,7 +25,7 @@ module.exports = {
 
   create: (req,res) => {
     knex('users').insert({
-      user_name: req.body.name,
+      user_name: req.body.username,
       email: req.body.email,
       password: req.body.password,
       user_city: req.body.city,
