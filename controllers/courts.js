@@ -5,7 +5,6 @@ module.exports = {
     knex('users').where('user_city', req.session.user_city).then((results)=>{
       knex('courts').where({court_city: req.session.user_city}).then((result)=>{
           res.render('courts', {user:results[0], courts:result});
-          console.log(data);
       })
     })
   },
@@ -20,11 +19,13 @@ module.exports = {
 
   createCourt: (req,res) => {
     knex('courts').insert({
-      court_name: req.body.,
-      court_address: req.body.,
-      court_city: req.body.,
-      court_type: req.body.,
-      rim_count: req.body.,
+      court_name: req.body.courtname,
+      court_address: req.body.courtaddress,
+      court_city: req.body.courtcity,
+      court_state: req.body.courtstate,
+      court_zip: req.body.zip,
+      court_type: req.body.courttype,
+      rim_count: req.body.rims,
     }).then(()=>{
       res.redirect('/courts')
     })
