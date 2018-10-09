@@ -18,6 +18,6 @@ module.exports = {
   },
 
   gamesPage: (req,res) => {
-
+    res.render('court')
   }
 }
