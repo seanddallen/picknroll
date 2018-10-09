@@ -19,11 +19,11 @@ module.exports = function(app){
   app.post('/courts/vote/:id', votes.courtVote);
 
   app.get('/courts/:id', courts.courtPage);
-  // app.get('/courts/description:id', courts.description);
+  // app.get('/courts/description/:id', courts.description);
   // app.get('/courts/location/:id', courts.location);
   // app.get('/courts/images/:id', courts.images);
   // app.get('/courts/comments/:id', courts.comments);
-  app.post('/courts/:id/comments', comments.newComment);
+  app.post('/courts/comments/newcomment', comments.newComment);
   app.post('/games/create', games.createGame);
 
 }

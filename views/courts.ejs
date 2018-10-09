@@ -86,19 +86,19 @@
       <div class="modal-body">
 
         <div class="flex" style="display:flex; flex-direction: column; justify-content:center; max-width: 60%; margin:0px auto;">
-          <form action="/courts/new" method="post">
+          <form action="/courts/create" method="post">
             <div class="form-group">
               <input type="text" name="courtname" class="form-control" placeholder="Court Name" style="margin-top:0px;">
-              <input type="text" name="address" class="form-control" placeholder="Address" style="margin-top:10px;">
-              <input type="text" class="form-control" placeholder="City" style="margin-top:10px;">
-              <select id="inputState" class="form-control" style="margin-top:10px;">
+              <input type="text" name="courtaddress" class="form-control" placeholder="Address" style="margin-top:10px;">
+              <input type="text" name="courtcity" class="form-control" placeholder="City" style="margin-top:10px;">
+              <select id="inputState" name="courtstate" class="form-control" style="margin-top:10px;">
                 <option selected>State</option>
                 <option>AZ</option>
                 <option>CA</option>
                 <option>NY</option>
               </select>
               <input type="text" name="zip" class="form-control" placeholder="Zip Code" style="margin-top:10px;">
-              <select id="inputRims" class="form-control" style="margin-top:10px;">
+              <select id="inputRims" name="rims" class="form-control" style="margin-top:10px;">
                 <option selected>Rim Count</option>
                 <option>1</option>
                 <option>2</option>
