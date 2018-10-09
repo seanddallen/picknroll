@@ -29,7 +29,7 @@ module.exports = {
       user_name: req.body.username,
       email: req.body.email,
       password: req.body.password,
-      user_city: req.body.city,
+      user_city: req.body.usercity,
     }).then(()=>{
       res.redirect('/');
     })
