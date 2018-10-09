@@ -39,36 +39,19 @@
     <div class="container mt-5">
       <div class="flex flex-between flex-wrap">
 
+        <% courtdata.forEach(court => { %>
         <div class="card col-lg-4 text-center court-card">
           <div class="card-header">
-            Phoenix, AZ
+            <%= court.court_city %>
           </div>
           <div class="card-body">
-            <h5 class="card-title court-font">Palma Park</h5>
-            <a href="#" class="btn btn-outline-primary main-btn-outline">See Court</a>
-          </div>
-          <div class="card-footer text-muted flex">
-            <div class="" style="align-self: flex-start; margin-top: 3px; margin-right: 125px;">
-              Votes: 0
-            </div>
-            <div style="align-self: flex-end;">
-              <i id="favorite" class="fab fa-gratipay fa-2x grey"></i>
-              <i id="vote" class="fas fa-arrow-alt-circle-up fa-2x grey"></i>
-            </div>
-          </div>
-        </div>
+            <h5 class="card-title court-font"><%= court.court_name %></h5>
 
-        <div class="card col-lg-4 text-center court-card">
-          <div class="card-header">
-            Phoenix, AZ
-          </div>
-          <div class="card-body">
-            <h5 class="card-title court-font">LA Fitness</h5>
-            <a href="#" class="btn btn-outline-primary main-btn-outline">See Court</a>
+              <a href="/courts/<%= court.id %>" class="btn btn-outline-primary main-btn-outline">See Court</a>
           </div>
           <div class="card-footer text-muted flex">
             <div class="" style="align-self: flex-start; margin-top: 3px; margin-right: 125px;">
-              Votes: 0
+              Votes: <%= court.votes %>
             </div>
             <div style="align-self: flex-end;">
               <i id="favorite" class="fab fa-gratipay fa-2x grey"></i>
@@ -76,82 +59,7 @@
             </div>
           </div>
         </div>
-
-        <div class="card col-lg-4 text-center court-card">
-          <div class="card-header">
-            Phoenix, AZ
-          </div>
-          <div class="card-body">
-            <h5 class="card-title court-font">LA Fitness</h5>
-            <a href="#" class="btn btn-outline-primary main-btn-outline">See Court</a>
-          </div>
-          <div class="card-footer text-muted flex">
-            <div class="" style="align-self: flex-start; margin-top: 3px; margin-right: 125px;">
-              Votes: 0
-            </div>
-            <div style="align-self: flex-end;">
-              <i id="favorite" class="fab fa-gratipay fa-2x grey"></i>
-              <i id="vote" class="fas fa-arrow-alt-circle-up fa-2x grey"></i>
-            </div>
-          </div>
-        </div>
-
-        <div class="card col-lg-4 text-center court-card">
-          <div class="card-header">
-            Phoenix, AZ
-          </div>
-          <div class="card-body">
-            <h5 class="card-title court-font">Palma Park</h5>
-            <a href="#" class="btn btn-outline-primary main-btn-outline">See Court</a>
-          </div>
-          <div class="card-footer text-muted flex">
-            <div class="" style="align-self: flex-start; margin-top: 3px; margin-right: 125px;">
-              Votes: 0
-            </div>
-            <div style="align-self: flex-end;">
-              <i id="favorite" class="fab fa-gratipay fa-2x grey"></i>
-              <i id="vote" class="fas fa-arrow-alt-circle-up fa-2x grey"></i>
-            </div>
-          </div>
-        </div>
-
-        <div class="card col-sm-4 text-center court-card">
-          <div class="card-header">
-            Phoenix, AZ
-          </div>
-          <div class="card-body">
-            <h5 class="card-title court-font">Palma Park</h5>
-            <a href="#" class="btn btn-outline-primary main-btn-outline">See Court</a>
-          </div>
-          <div class="card-footer text-muted flex">
-            <div class="" style="align-self: flex-start; margin-top: 3px; margin-right: 125px;">
-              Votes: 0
-            </div>
-            <div style="align-self: flex-end;">
-              <i id="favorite" class="fab fa-gratipay fa-2x grey"></i>
-              <i id="vote" class="fas fa-arrow-alt-circle-up fa-2x grey"></i>
-            </div>
-          </div>
-        </div>
-
-        <div class="card col-sm-4 text-center court-card">
-          <div class="card-header">
-            Phoenix, AZ
-          </div>
-          <div class="card-body">
-            <h5 class="card-title court-font">Palma Park</h5>
-            <a href="#" class="btn btn-outline-primary main-btn-outline">See Court</a>
-          </div>
-          <div class="card-footer text-muted flex">
-            <div class="" style="align-self: flex-start; margin-top: 3px; margin-right: 125px;">
-              Votes: 0
-            </div>
-            <div style="align-self: flex-end;">
-              <i id="favorite" class="fab fa-gratipay fa-2x grey"></i>
-              <i id="vote" class="fas fa-arrow-alt-circle-up fa-2x grey"></i>
-            </div>
-          </div>
-        </div>
+        <% }) %>
 
       </div>
 
@@ -214,7 +122,7 @@
                 </label>
               </div>
 
-            <button type="submit" class="btn btn-primary login-btn text-center" data-dismiss="modal" style="display:flex; flex-direction: column; justify-content:center; max-width: 50%; margin:20px auto;">Share Court</button>
+            <button type="submit" class="btn btn-primary login-btn text-center" style="display:flex; flex-direction: column; justify-content:center; max-width: 50%; margin:20px auto;">Share Court</button>
           </form>
         </div>
 

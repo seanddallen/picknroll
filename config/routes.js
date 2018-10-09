@@ -3,27 +3,28 @@ const users = require("../controllers/users.js");
 const courts = require("../controllers/courts.js");
 const games = require("../controllers/games.js");
 const comments = require("../controllers/comments.js");
+const votes = require("../controllers/votes.js");
+
 module.exports = function(app){
 
   app.get('/', users.loginPage);
   app.post('/login', users.login)
   app.post('/register', users.create);
 
+  app.use(authMiddleware);
 
   app.get('/courts', courts.courtsPage);
-  app.get('/courts/:city', courts.search);
+  app.get('/courts/city/:city', courts.search);
   app.post('/courts/create', courts.createCourt);
-  app.post('/courts/:id/vote', votes.courtVote);
+  app.post('/courts/vote/:id', votes.courtVote);
 
   app.get('/courts/:id', courts.courtPage);
-  app.get('/courts/:id/description', courts.description);
-  app.get('/courts/:id/location', courts.location);
-  app.get('/courts/:id/images', courts.images);
-  app.get('/courts/:id/comments', courts.comments);
+  // app.get('/courts/description:id', courts.description);
+  // app.get('/courts/location/:id', courts.location);
+  // app.get('/courts/images/:id', courts.images);
+  // app.get('/courts/comments/:id', courts.comments);
   app.post('/courts/:id/comments', comments.newComment);
   app.post('/games/create', games.createGame);
-
-  app.use(authMiddleware);
 
 }
 
