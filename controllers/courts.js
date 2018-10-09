@@ -35,8 +35,35 @@ module.exports = {
   },
 
   courtPage: (req,res) => {
+    knex('courts').where('id', req.params.id).then((results1)=>{
+      knex('games').where('courts_id', req.params.id).then((results2)=>{
+        res.render('court', {courtdata: results1, gamedata: results2})
+      })
+    })
+  },
+
+  description: (req,res) => {
     knex('courts').where('id', req.params.id).then((results)=>{
-      res.render('court', {courtdata: results})
+      res.render('tabs/description', {courtdata: results})
+    })
+  },
+
+  location: (req,res) => {
+    knex('courts').where('id', req.params.id).then((results)=>{
+      res.render('tabs/location', {courtdata: results})
+    })
+  },
+
+  images: (req,res) => {
+    knex('courts').where('id', req.params.id).then((results)=>{
+      res.render('tabs/images', {courtdata: results})
+    })
+  },
+
+  comments: (req,res) => {
+    knex('courts').where('id', req.params.id).then((results)=>{
+      res.render('tabs/comments', {courtdata: results})
     })
   }
+
 }

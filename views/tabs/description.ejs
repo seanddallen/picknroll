@@ -49,26 +49,7 @@
     </div>
     <% }) %>
 
-    <div class="container mt-5">
-      <div class="flex flex-between flex-wrap">
 
-        <% gamedata.forEach(game => { %>
-        <div class="card col-lg-4 court-card" style="width: 18rem; border: 2px dotted #dc7b1b;">
-          <div class="card-header court-font">
-            <%= game.game_name %>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item"><b>Type:</b> <%= game.game_type %></li>
-            <li class="list-group-item"><b>Skill:</b> <%= game.game_skill %> </li>
-            <li class="list-group-item"><b>Day:</b> <%= game.game_day %> </li>
-            <li class="list-group-item"><b>Time:</b> <%= game.game_time %><%= game.ampm %></li>
-          </ul>
-        </div>
-        <% }) %>
-
-      </div>
-
-    </div>
 
   </main>
 

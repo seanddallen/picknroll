@@ -7,22 +7,27 @@ const votes = require("../controllers/votes.js");
 
 module.exports = function(app){
 
-  app.get('/', users.loginPage);
-  app.post('/login', users.login)
-  app.post('/register', users.create);
+  //LOGIN PAGE
+  app.get('/', users.loginPage); //COMPLETE
+  app.post('/login', users.login) //COMPLETE
+  app.post('/register', users.create); //COMPLETE
 
   app.use(authMiddleware);
 
-  app.get('/courts', courts.courtsPage);
+  //COURTS PAGE
+  app.get('/courts', courts.courtsPage); //shows all courts
   app.get('/courts/city/:city', courts.search);
-  app.post('/courts/create', courts.createCourt);
+
+  app.post('/courts/create', courts.createCourt); //COMPLETE
   app.post('/courts/vote/:id', votes.courtVote);
 
-  app.get('/courts/:id', courts.courtPage);
-  // app.get('/courts/description/:id', courts.description);
-  // app.get('/courts/location/:id', courts.location);
-  // app.get('/courts/images/:id', courts.images);
-  // app.get('/courts/comments/:id', courts.comments);
+  //COURT PAGE
+  app.get('/courts/:id', courts.courtPage); //COMPLETE
+  app.get('/courts/description/:id', courts.description);
+  app.get('/courts/location/:id', courts.location);
+  app.get('/courts/images/:id', courts.images);
+  app.get('/courts/comments/:id', courts.comments);
+
   app.post('/courts/comments/newcomment', comments.newComment);
   app.post('/games/create', games.createGame);
 
