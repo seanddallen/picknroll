@@ -17,7 +17,7 @@ module.exports = {
 
   },
 
-  gamesPage: (req,res) => {
+  courtPage: (req,res) => {
     res.render('court')
   }
 }

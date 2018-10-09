@@ -13,14 +13,13 @@ module.exports = function(app){
   app.get('/courts', courts.courtsPage);
 
   app.get('/courts/:city', courts.search);
-  app.get('/courts/new', courts.newCourt);
   app.post('/courts/create', courts.createCourt);
 
-  app.get('/games', courts.gamesPage); //courts/:id
+  app.get('/courts/:id', courts.courtPage); //courts/:id
 
   app.post('/games/create', games.createGame);
 
-  app.post('/comments', comments.newComment); //courts/:id/comments
+  app.post('/courts/:id/comments', comments.newComment); //courts/:id/comments
 
   app.use(authMiddleware);
 
