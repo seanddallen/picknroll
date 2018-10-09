@@ -19,11 +19,10 @@ module.exports = function(app){
 
   app.post('/games/create', games.createGame);
 
-  app.post('/courts/:id/comments', comments.newComment); //courts/:id/comments
+  app.post('/courts/:id/comments', comments.newComment);
 
   app.use(authMiddleware);
 
-  app.post('/courts/:id/comments', comments.newComment);
 
 }
 
