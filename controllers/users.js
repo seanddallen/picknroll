@@ -14,6 +14,7 @@ module.exports = {
       }
       if(user.password === req.body.password){
         req.session.user_id = user.id;
+        req.session.user_city = user.user_city;
         req.session.save(()=>{
           res.redirect('/courts');
         })

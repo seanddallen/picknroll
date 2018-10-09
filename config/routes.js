@@ -21,7 +21,7 @@ module.exports = function(app){
 
   app.post('games/create', games.createGame);
 
-  app.post('/comments', comments.newComment);
+  app.post('/courts/:id/comments', comments.newComment);
 
 }
 

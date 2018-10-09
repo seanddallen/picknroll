@@ -6,7 +6,10 @@ exports.seed = function(knex, Promise) {
       // Inserts seed entries
       return knex('courts').insert([
         {court_name:'Palma Park', court_address: '1135 E. Dunlap Ave. Phoenix,AZ 85020', court_city: 'Phoenix', court_type: 'outdoor', rim_count:2, votes:0},
-        {court_name:'LA Fitness', court_address: '2077 E. Camelback Rd. Phoenix,AZ 85016', court_city: 'Phoenix', court_type: 'indoor', rim_count:2, votes:0}
+        {court_name:'LA Fitness', court_address: '2077 E. Camelback Rd. Phoenix,AZ 85016', court_city: 'Phoenix', court_type: 'indoor', rim_count:2, votes:0},
+        {court_name:'Nichols', court_address: '898 Bloomfield Ave, Nutley, NJ 07110', court_city: 'Nutley', court_type: 'outdoor', rim_count:2, votes:0}
       ]);
     });
 };
+
+//added extra seed.

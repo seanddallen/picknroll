@@ -7,7 +7,7 @@ exports.up = function(knex, Promise) {
      .references('id')
      .inTable('courts')
      .onDelete('CASCADE')
-     .index();  
+     .index();
     table.timestamps(true, true);
   })
 
