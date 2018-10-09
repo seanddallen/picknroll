@@ -14,6 +14,7 @@ module.exports = {
       }
       if(user.password === req.body.password){
         req.session.user_id = user.id;
+        req.session.user_city = user.user_city;
         req.session.save(()=>{
           res.redirect('/courts');
         })
@@ -25,7 +26,7 @@ module.exports = {
 
   create: (req,res) => {
     knex('users').insert({
-      user_name: req.body.name,
+      user_name: req.body.username,
       email: req.body.email,
       password: req.body.password,
       user_city: req.body.city,

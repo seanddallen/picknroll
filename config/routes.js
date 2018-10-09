@@ -15,7 +15,7 @@ module.exports = function(app){
   app.get('/courts/:city', courts.search);
   app.post('/courts/create', courts.createCourt);
 
-  app.get('/courts/:id', courts.courtPage); //courts/:id
+  app.get('/courts/:id', courts.courtPage);
 
   app.post('/games/create', games.createGame);
 
@@ -23,6 +23,7 @@ module.exports = function(app){
 
   app.use(authMiddleware);
 
+  app.post('/courts/:id/comments', comments.newComment);
 
 }
 
