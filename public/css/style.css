@@ -1,0 +1,119 @@
+/* Primary Color = #dc7b1b */
+
+/*************** LOGIN PAGE *****************/
+
+.flex{
+  display: flex
+}
+
+#body{
+  background-image: linear-gradient(to right, #dc7b1b 0%, rgba(255, 255, 255, 0) 35%), linear-gradient(to left, #dc7b1b 0%, rgba(255, 255, 255, 0) 35%);
+}
+
+.flex-center{
+  justify-content: center;
+}
+
+.main-btn{
+  color: black;
+  background-color: #dc7b1b;
+  border: solid 2px black;
+}
+
+.main-btn:hover{
+  color: #dc7b1b;
+  background-color: white;
+  border: solid 2px #dc7b1b;
+}
+
+.login{
+  color: #dc7b1b;
+  border: 1px solid #dc7b1b;
+  outline: none !important;
+}
+
+.login:hover{
+  color: white;
+  background-color: #dc7b1b;
+  border: 1px solid #dc7b1b;
+  outline: none !important;
+}
+
+.login:active{
+  color: white;
+  background-color: #dc7b1b !important;
+  border: 1px solid #dc7b1b;
+  outline: none !important;
+}
+
+.login:focus{
+  color: white;
+  background-color: #dc7b1b !important;
+  border: 1px solid #dc7b1b;
+  outline: none !important;
+}
+
+.login-btn {
+  background-color: #dc7b1b;
+  border: 2px solid grey;
+  outline: none;
+}
+
+.login-btn:hover {
+  background-color: grey;
+  border: 2px solid #dc7b1b;
+}
+
+#navlogo{
+  max-width: 260px;
+}
+
+#main-logo{
+  /* margin: 100px auto; */
+  width: 800px;
+  margin-top: 10% auto;
+  z-index:99;
+  position: fixed;
+  top: 40%;
+  left: 22%;
+  /* width: 600px; */
+}
+
+.text-center{
+  text-align: center;
+}
+
+#home-img-1{
+  margin-top:80px;
+  max-height:90%;
+  zoom: 0.8;
+  opacity: 0.6;
+}
+
+
+
+#home-img-2{
+  margin-top:60px;
+  max-height:90%;
+  zoom: 0.8;
+  opacity: 0.6;
+}
+
+.home-text{
+  margin-top: 160px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.home-text-h2{
+  font-size: 2.5em;
+  font-family: 'Caveat Brush';
+}
+
+/*************** COURTS PAGE *****************/
+
+
+
+
+
+/*************** COURT PAGE *****************/

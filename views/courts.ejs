@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>PICKnROLL</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script defer src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Caveat+Brush" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <header id="navbar" class="">
+      <nav class="navbar navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand">
+            <img id="navlogo" src="images/picknroll-light.png" alt="picknroll logo">
+          </a>
+          <button class="btn btn-outline-success login" type="button" data-toggle="modal" data-target="#newCourtModal" style="margin-left:600px;">New Court</button>
+          <button class="btn btn-outline-success login" type="button" data-toggle="modal" data-target="#">Logout</button>
+        </div>
+      </nav>
+  </header>
+
+  <main>
+    <form class="form-inline flex flex-center" style="margin-top:120px;">
+      <div class="form-group mx-sm-3 mb-2">
+        <label for="inputname" class="sr-only">City Name</label>
+        <input name="city" type="text" class="form-control" placeholder="City Name" style="width: 300px;">
+      </div>
+      <button type="submit" class="btn btn-primary mb-2 main-btn">Find Courts</button>
+    </form>
+
+
+  </main>
+
+
+
+</body>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~ LOGIN MODAL ~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<div id="newCourtModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="newCourtModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Share New Court</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="flex" style="display:flex; flex-direction: column; justify-content:center; max-width: 60%; margin:0px auto;">
+          <form action="/courts/new" method="post">
+            <div class="form-group">
+              <input type="text" name="courtname" class="form-control" placeholder="Court Name" style="margin-top:0px;">
+              <input type="text" name="address" class="form-control" placeholder="Address" style="margin-top:10px;">
+              <div class="form-row" style="margin-top:10px;">
+                <div class="form-group col-md-6">
+                  <input type="text" class="form-control" placeholder="City" id="inputCity">
+                </div>
+                <div class="form-group col-md-4">
+                  <select id="inputState" class="form-control">
+                    <option selected>State</option>
+                    <option>...</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-2">
+                  <input type="text" class="form-control" id="inputZip">
+                </div>
+              </div>
+
+            <button type="submit" class="btn btn-primary login-btn text-center" data-dismiss="modal" style="display:flex; flex-direction: column; justify-content:center; max-width: 30%; margin:20px auto;">Login</button>
+          </form>
+        </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+</html>

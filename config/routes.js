@@ -9,7 +9,6 @@ module.exports = function(app){
   app.post('/login', users.login)
   app.post('/register', users.create);
 
-  app.use(authMiddleware);
 
   app.get('/courts', courts.courtsPage);
 
@@ -22,6 +21,9 @@ module.exports = function(app){
   app.post('games/create', games.createGame);
 
   app.post('/comments', comments.newComment);
+
+  app.use(authMiddleware);
+
 
 }
 

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>PICKnROLL</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script defer src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Caveat+Brush" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body id="body">
+
+  <header id="navbar" class="">
+      <nav class="navbar navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand">
+            <img id="navlogo" src="images/picknroll-light.png" alt="picknroll logo">
+          </a>
+            <button class="btn btn-outline-success my-2 my-sm-0 login" type="button" data-toggle="modal" data-target="#loginModal">Login</button>
+        </div>
+      </nav>
+  </header>
+
+  <main>
+
+    <div class="flex flex-center">
+      <div class="row">
+        <div class="col-3-md">
+          <img src="images/woman-bball.png" alt="" id="home-img-1">
+        </div>
+        <div class="">
+          <img src="images/picknroll.png" alt="" id="main-logo">
+          <div class="text-center home-text">
+            <h2 class="home-text-h2">Pick a Court.</h2>
+            <h2 class="home-text-h2">Pick a Game.</h2>
+            <h2 class="home-text-h2" style="margin-top:260px;">Roll with Friends.</h2>
+          </div>
+        </div>
+        <div class="col-3-md">
+          <img src="images/man-bball.png" alt="" id="home-img-2">
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+
+
+</body>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~ LOGIN MODAL ~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<div id="loginModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="loginModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalCenterTitle">Login / Register</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="flex" style="display:flex; flex-direction: column; justify-content:center; max-width: 60%; margin:0px auto;">
+          <h2 style="display:flex; flex-direction: column; justify-content:center; max-width: 30%;">Login</h2>
+          <form action="/login" method="post">
+            <div class="form-group">
+              <input type="email" name="email" class="form-control" placeholder="Email" style="margin-top:0px;">
+              <input type="password" name="password" class="form-control" placeholder="Password" style="margin-top:10px;">
+            <button type="submit" class="btn btn-primary login-btn text-center" data-dismiss="modal" style="display:flex; flex-direction: column; justify-content:center; max-width: 30%; margin:20px auto;">Login</button>
+          </form>
+        </div>
+
+        <div class="flex" style="display:flex; flex-direction: column; justify-content:center;">
+          <h2 style="display:flex; flex-direction: column; justify-content:center; max-width: 30%; text-align:center;">Register</h2>
+          <form action="/register" method="post" class="">
+            <div class="form-group">
+              <input type="text" name="username" class="form-control" placeholder="Name" style="margin-top:0px;">
+              <input type="email" name="email" class="form-control" placeholder="Email" style="margin-top:10px;">
+              <input type="password" name="password" class="form-control" placeholder="Password" style="margin-top:10px;">
+              <!-- <input type="password" class="form-control" id="passwordinput2" placeholder="Password" style="margin-top:20px;"> -->
+            <button type="submit" class="btn btn-primary login-btn text-center" data-dismiss="modal" style="display:flex; flex-direction: column; justify-content:center; min-width: 30%; margin:20px auto; text-align:center; ">Register</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</html>

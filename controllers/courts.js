@@ -2,7 +2,7 @@ const knex = require("../db/knex.js");
 
 module.exports = {
   courtsPage: (req,res) => {
-    res.render('courtsPage')
+    res.render('courts')
   },
 
   search: (req,res) => {
