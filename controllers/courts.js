@@ -55,8 +55,10 @@ module.exports = {
   },
 
   images: (req,res) => {
-    knex('courts').where('id', req.params.id).then((results)=>{
-      res.render('tabs/images', {courtdata: results})
+    knex('courts').where('id', req.params.id).then((results1)=>{
+      knex('images').where('courts_id', req.params.id).then((results2)=>{
+        res.render('tabs/images', {courtdata: results1, imagedata: results2})
+      })
     })
   },
 

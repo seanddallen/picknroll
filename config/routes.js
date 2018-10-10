@@ -9,8 +9,9 @@ module.exports = function(app){
 
   //LOGIN PAGE
   app.get('/', users.loginPage); //COMPLETE
-  app.post('/login', users.login) //COMPLETE
+  app.post('/login', users.login); //COMPLETE
   app.post('/register', users.create); //COMPLETE
+  app.post('/logout', users.logout);
 
   app.use(authMiddleware);
 
@@ -24,11 +25,11 @@ module.exports = function(app){
   //COURT PAGE
   app.get('/courts/:id', courts.courtPage); //COMPLETE
   app.get('/courts/description/:id', courts.description); //COMPLETE
-  app.get('/courts/location/:id', courts.location); //COMPLETE
-  app.get('/courts/images/:id', courts.images); //COMPLETE
+  app.get('/courts/location/:id', courts.location);
+  app.get('/courts/images/:id', courts.images);
   app.get('/courts/comments/:id', courts.comments); //COMPLETE
 
-  app.post('/courts/comments/newcomment/:id', comments.newComment);
+  app.post('/courts/comments/newcomment/:id', comments.newComment); //COMPLETE
   app.post('/games/create', games.createGame); //COMPLETE
 
 }

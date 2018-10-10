@@ -24,6 +24,10 @@ module.exports = {
     })
   },
 
+  logout: (req,res) => {
+
+  },
+
   create: (req,res) => {
     knex('users').insert({
       user_name: req.body.username,
