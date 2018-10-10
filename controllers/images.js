@@ -24,9 +24,9 @@ module.exports = {
         }
       })
       knex('images').where('courts_id', req.params.id).insert({
-        name:
-        image:
-      }).then((results)=>{
+        image_url: baseAWSURL + uploadData.Key,
+        courts_id: req.params.id
+      }).then(()=>{
         res.redirect('tabs/images');
       })
     }
