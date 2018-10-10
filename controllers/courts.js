@@ -11,10 +11,9 @@ module.exports = {
         res.render('courts', {courtdata: results})
       })
     }else{
-      knex('courts').orderBy('votes', 'desc').then((results)=>{
-        knex('votes').where('id', req.session.user_id).then((results2)=>{
-          res.render('courts', {courtdata: results, votes:results2[0]})
-          console.log(results2[0].id);
+      knex('users').where('user_city', req.session.user_city).then((results1)=>{
+        knex('courts').orderBy('votes', 'desc').where({court_city: req.session.user_city}).then((results2)=>{
+          res.render('courts', {userdata:results1, courtdata:results2});
         })
       })
     }
