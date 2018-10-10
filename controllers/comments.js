@@ -6,7 +6,7 @@ module.exports = {
       // comment: req.body.,
       // courts_id: req.params.id,
     }).then(() => {
-      res.redirect(`courts/${req.params.id}`)
+      res.redirect(`courts/comments/${req.params.id}`)
     })
   }
 }
