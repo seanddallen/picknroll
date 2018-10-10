@@ -2,15 +2,20 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const bodyParser = require('body-parser');
-const moment = require('moment');
 const port = process.env.PORT || 8000;
+const fileUpload = require('express-fileupload');
+
+
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(fileUpload());
 app.use(express.static("public"));
 
 require('./config/sessions')(app);
 
 app.set('view engine', 'ejs');
+
+
 
 var routes_setter = require('./config/routes.js');
 routes_setter(app);

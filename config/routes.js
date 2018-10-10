@@ -4,6 +4,8 @@ const courts = require("../controllers/courts.js");
 const games = require("../controllers/games.js");
 const comments = require("../controllers/comments.js");
 const votes = require("../controllers/votes.js");
+const images = require("../controllers/images.js");
+
 
 module.exports = function(app){
 
@@ -23,11 +25,14 @@ module.exports = function(app){
   app.get('/courts/:id', courts.courtPage); //COMPLETE
   app.get('/courts/description/:id', courts.description); //COMPLETE
   app.get('/courts/location/:id', courts.location);
-  app.get('/courts/images/:id', courts.images);
   app.get('/courts/comments/:id', courts.comments); //COMPLETE
 
   app.post('/courts/comments/newcomment/:id', comments.newComment); //COMPLETE
   app.post('/games/create/:id', games.createGame); //COMPLETE
+
+  app.get('/courts/images/:id', images.imagesPage); //COMPLETE
+  app.post('/courts/images/upload/:id', images.upload); //COMPLETE
+
 
 }
 
