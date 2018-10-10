@@ -7,7 +7,6 @@ const votes = require("../controllers/votes.js");
 
 module.exports = function(app){
 
-  //LOGIN PAGE
   app.get('/', users.loginPage); //COMPLETE
   app.post('/login', users.login); //COMPLETE
   app.post('/register', users.create); //COMPLETE
@@ -15,14 +14,12 @@ module.exports = function(app){
 
   app.use(authMiddleware);
 
-  //COURTS PAGE
   app.get('/courts', courts.courtsPage); //shows all courts
   app.get('/courts/city/:city', courts.search); //COMPLETE
 
   app.post('/courts/create', courts.createCourt); //COMPLETE
   app.post('/courts/vote/:id', votes.courtVote);
 
-  //COURT PAGE
   app.get('/courts/:id', courts.courtPage); //COMPLETE
   app.get('/courts/description/:id', courts.description); //COMPLETE
   app.get('/courts/location/:id', courts.location);
@@ -30,7 +27,7 @@ module.exports = function(app){
   app.get('/courts/comments/:id', courts.comments); //COMPLETE
 
   app.post('/courts/comments/newcomment/:id', comments.newComment); //COMPLETE
-  app.post('/games/create', games.createGame); //COMPLETE
+  app.post('/games/create/:id', games.createGame); //COMPLETE
 
 }
 

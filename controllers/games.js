@@ -11,7 +11,7 @@ module.exports = {
       ampm: req.body.ampm,
       courts_id: req.params.id
     }).then(()=>{
-      res.redirect()
+      res.redirect(`/courts/${req.params.id}`)
     })
   }
 }

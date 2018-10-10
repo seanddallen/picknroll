@@ -6,18 +6,22 @@ module.exports = {
     //   knex('courts').where({court_city: req.session.user_city}).then((result)=>{
     //       res.render('courts', {user:results[0], courts:result});
     //       console.log(data);
-    knex('courts').then((results)=>{
-      res.render('courts', {courtdata: results})
-    })
-      // })
-    // }
+    if(req.query.city){
+      knex('courts').whereRaw('LOWER(court_city) LIKE ?', [req.query.city.toLowerCase()]).then((results)=>{
+        res.render('courts', {courtdata: results})
+      })
+    }else{
+      knex('courts').then((results)=>{
+        res.render('courts', {courtdata: results})
+      })
+    }
   },
 
   search: (req,res) => {
-    // knex('courts').where('city', req.body.city).then((results)=>{
-    //   res.redirect('courts', {courts:results})
-    //   console.log(results)
-    // })
+    knex('courts').where('court_city', req.query.city).then(()=>{
+      res.render('courts')
+      console.log(results);
+    })
   },
 
   createCourt: (req,res) => {
@@ -29,6 +33,7 @@ module.exports = {
       court_zip: req.body.zip,
       court_type: req.body.courttype,
       rim_count: req.body.rims,
+      courts_id: req.params.id
     }).then(()=>{
       res.redirect('/courts')
     })
