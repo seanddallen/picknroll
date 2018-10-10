@@ -53,7 +53,7 @@
 
 
 
-    <form enctype="multipart/form-data" action="/courts/images/upload/<%= courtdata[0].id %>" method="post" style="display:flex; justify-content:center; max-width: 60%; margin: 20px auto;">
+    <form enctype="multipart/form-data" action="/courts/images/upload/<%= courtdata[0].id %>" method="post" style="display:flex; justify-content:center; max-width: 60%; margin: 20px auto 0px auto;">
       <div class="form-group text-center flex-col flex-center">
         <!-- <h5 style="">Upload Court Image</h5> -->
         <div>
@@ -70,16 +70,21 @@
       <input type="submit" value="Upload Image">
     </form> -->
 
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="width:800px; height: 500px; margin: 0px auto 40px auto;">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
       </ol>
       <div class="carousel-inner">
+        <div class="carousel-item active
+          <img class="d-block w-100" src="<%= imagedata[0].img_url %>" alt="" style="max-height: 500px;>
+        </div>
         <% imagedata.forEach(court => { %>
-        <div class="carousel-item active">
-          <img class="d-block w-100" src="<%= court.img_url %> slide" alt="">
+        <div class="carousel-item">
+          <img class="d-block w-100" src="<%= court.img_url %>" alt="" style="max-height: 500px;">
         </div>
         <% }) %>
       </div>

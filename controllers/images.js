@@ -1,5 +1,8 @@
 const knex = require("../db/knex.js");
-
+const AWS = require('aws-sdk');
+AWS.config.loadFromPath('config.json');                             //config file???
+let s3Bucket = new AWS.S3({params: {Bucket: "pnrimages"}});
+const baseAWSURL = "https://s3-us-east-2.amazonaws.com/pnrimages/"
 module.exports = {
 
     imagesPage: (req,res) => {
@@ -24,10 +27,10 @@ module.exports = {
         }
       })
       knex('images').where('courts_id', req.params.id).insert({
-        image_url: baseAWSURL + uploadData.Key,
+        img_url: baseAWSURL + uploadData.Key,
         courts_id: req.params.id
       }).then(()=>{
-        res.redirect('tabs/images');
+        res.redirect(`/courts/images/${req.params.id}`);
       })
     }
 
