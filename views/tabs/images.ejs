@@ -53,14 +53,22 @@
 
 
 
-    <form style="display:flex; justify-content:center; max-width: 60%; margin: 40px auto;">
+    <form enctype="multipart/form-data" action="/courts/images/upload/<%= courtdata[0].id %>" method="post" style="display:flex; justify-content:center; max-width: 60%; margin: 20px auto;">
       <div class="form-group text-center flex-col flex-center">
-        <h4 style="">Upload Court Image</h4>
+        <!-- <h5 style="">Upload Court Image</h5> -->
         <div>
-          <input type="file" class="form-control-file" style="text-align:center; margin: 20px auto 20px 130px;"></input>
+          <!-- <input type="file" class="form-control-file" style="text-align:center; margin: 20px auto 20px 130px;"></input> -->
+          <input type="file" name="upload" accept=".jpg, .jpeg, .png" style="text-align:center; margin: 20px auto 20px 0px;">
+          <input type="text" name="name" placeholder="Image Name" style="text-align:center; margin: 0 auto; outline: #dc7b1b;">
+          <input type="submit" value="Upload Image" style="background-color: #dc7b1b; color: rgba(255,255,255,0.9); border-radius:2px;">
         </div>
       </div>
     </form>
+
+    <!-- <form enctype="multipart/form-data" action="/courts/images/upload/<%= courtdata[0].id %>" method="post">
+      <input type="file" name="upload" accept=".jpg, .jpeg, .png" style="text-align:center; margin: 20px auto 20px 130px;">
+      <input type="submit" value="Upload Image">
+    </form> -->
 
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">

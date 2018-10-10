@@ -2,17 +2,15 @@ const knex = require("../db/knex.js");
 
 module.exports = {
   courtsPage: (req,res) => {
-    // knex('users').where('user_city', req.session.user_city).then((results)=>{
-    //   knex('courts').where({court_city: req.session.user_city}).then((result)=>{
-    //       res.render('courts', {user:results[0], courts:result});
-    //       console.log(data);
     if(req.query.city){
       knex('courts').whereRaw('LOWER(court_city) LIKE ?', [req.query.city.toLowerCase()]).then((results)=>{
         res.render('courts', {courtdata: results})
       })
     }else{
-      knex('courts').then((results)=>{
-        res.render('courts', {courtdata: results})
+      knex('users').where('user_city', req.session.user_city).then((results1)=>{
+        knex('courts').where({court_city: req.session.user_city}).then((results2)=>{
+            res.render('courts', {userdata:results1, courtdata:results2});
+        })
       })
     }
   },
@@ -32,8 +30,7 @@ module.exports = {
       court_state: req.body.courtstate,
       court_zip: req.body.zip,
       court_type: req.body.courttype,
-      rim_count: req.body.rims,
-      courts_id: req.params.id
+      rim_count: req.body.rims
     }).then(()=>{
       res.redirect('/courts')
     })
@@ -56,14 +53,6 @@ module.exports = {
   location: (req,res) => {
     knex('courts').where('id', req.params.id).then((results)=>{
       res.render('tabs/location', {courtdata: results})
-    })
-  },
-
-  images: (req,res) => {
-    knex('courts').where('id', req.params.id).then((results1)=>{
-      knex('images').where('courts_id', req.params.id).then((results2)=>{
-        res.render('tabs/images', {courtdata: results1, imagedata: results2})
-      })
     })
   },
 
