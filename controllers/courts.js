@@ -8,9 +8,8 @@ module.exports = {
       })
     }else{
       knex('users').where('user_city', req.session.user_city).then((results1)=>{
-        knex('courts').where({court_city: req.session.user_city}).then((results2)=>{
-            res.render('courts', {userdata:results1, courtdata:results2});
-        })
+        knex('courts').orderBy('votes', 'desc').where({court_city: req.session.user_city}).then((results2)=>{
+         res.render('courts', {userdata:results1, courtdata:results2});        })
       })
     }
   },

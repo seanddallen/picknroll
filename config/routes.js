@@ -20,7 +20,7 @@ module.exports = function(app){
   app.get('/courts/city/:city', courts.search); //COMPLETE
 
   app.post('/courts/create', courts.createCourt); //COMPLETE
-  app.post('/courts/vote/:id', votes.courtVote);
+  app.post('/courts/vote/:id', votes.courtVote); //COMPLETE
 
   app.get('/courts/:id', courts.courtPage); //COMPLETE
   app.get('/courts/description/:id', courts.description); //COMPLETE

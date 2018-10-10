@@ -18,13 +18,11 @@
   <header id="navbar" class="">
       <nav class="navbar navbar-dark bg-dark fixed-top">
         <div class="container">
-          <a href="/courts" class="navbar-brand">
+          <a class="navbar-brand">
             <img id="navlogo" src="images/picknroll-light.png" alt="picknroll logo">
           </a>
           <button class="btn btn-outline-success login" type="button" data-toggle="modal" data-target="#newCourtModal" style="margin-left:600px;">New Court</button>
-          <a href="/logout">
-            <button class="btn btn-outline-success login" type="button">Logout</button>
-          </a>
+          <button class="btn btn-outline-success login" type="button" data-toggle="modal" data-target="#">Logout</button>
         </div>
       </nav>
   </header>
@@ -52,13 +50,15 @@
               <a href="/courts/<%= court.id %>" class="btn btn-outline-primary main-btn-outline">See Court</a>
           </div>
           <div class="card-footer text-muted flex">
-            <div class="" style="align-self: flex-start; margin-top: 3px; margin-right: 125px;">
+            <div name="votes" class="" style="align-self: flex-start; margin-top: 3px; margin-right: 125px;">
               Votes: <%= court.votes %>
             </div>
-            <div style="align-self: flex-end;">
-              <i id="favorite" class="fab fa-gratipay fa-2x grey"></i>
-              <i id="vote" class="fas fa-arrow-alt-circle-up fa-2x grey"></i>
-            </div>
+              <div style="align-self: flex-end;">
+                <!-- <i class=" favorite fab fa-gratipay fa-2x grey"></i> -->
+                <form action="/courts/vote/<%= court.id %>" method="post">
+                  <button type="submit" class=" vote fas fa-arrow-alt-circle-up fa-2x grey" style="outline:none; border:none; background-color:#F8F8F8;"></button>
+                </form>
+              </div>
           </div>
         </div>
         <% }) %>
