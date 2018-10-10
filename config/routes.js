@@ -11,7 +11,7 @@ module.exports = function(app){
   app.get('/', users.loginPage); //COMPLETE
   app.post('/login', users.login); //COMPLETE
   app.post('/register', users.create); //COMPLETE
-  app.post('/logout', users.logout);
+  app.get('/logout', users.logout); //COMPLETE
 
   app.use(authMiddleware);
 
