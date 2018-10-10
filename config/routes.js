@@ -30,8 +30,8 @@ module.exports = function(app){
   app.post('/courts/comments/newcomment/:id', comments.newComment); //COMPLETE
   app.post('/games/create/:id', games.createGame); //COMPLETE
 
-  app.get('/courts/images/:id', images.imagesPage);
-  app.post('/courts/images/upload/:id', images.upload);
+  app.get('/courts/images/:id', images.imagesPage); //COMPLETE
+  app.post('/courts/images/upload/:id', images.upload); //COMPLETE
 
 
 }
