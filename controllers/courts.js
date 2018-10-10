@@ -11,8 +11,11 @@ module.exports = {
         res.render('courts', {courtdata: results})
       })
     }else{
-      knex('courts').then((results)=>{
-        res.render('courts', {courtdata: results})
+      knex('courts').orderBy('votes', 'desc').then((results)=>{
+        knex('votes').where('id', req.session.user_id).then((results2)=>{
+          res.render('courts', {courtdata: results, votes:results2[0]})
+          console.log(results2[0].id);
+        })
       })
     }
   },
@@ -32,8 +35,7 @@ module.exports = {
       court_state: req.body.courtstate,
       court_zip: req.body.zip,
       court_type: req.body.courttype,
-      rim_count: req.body.rims,
-      courts_id: req.params.id
+      rim_count: req.body.rims
     }).then(()=>{
       res.redirect('/courts')
     })
