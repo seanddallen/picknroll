@@ -16,20 +16,20 @@ module.exports = function(app){
 
   //COURTS PAGE
   app.get('/courts', courts.courtsPage); //shows all courts
-  app.get('/courts/city/:city', courts.search);
+  app.get('/courts/city/:city', courts.search); //COMPLETE
 
   app.post('/courts/create', courts.createCourt); //COMPLETE
   app.post('/courts/vote/:id', votes.courtVote);
 
   //COURT PAGE
   app.get('/courts/:id', courts.courtPage); //COMPLETE
-  app.get('/courts/description/:id', courts.description);
-  app.get('/courts/location/:id', courts.location);
-  app.get('/courts/images/:id', courts.images);
-  app.get('/courts/comments/:id', courts.comments);
+  app.get('/courts/description/:id', courts.description); //COMPLETE
+  app.get('/courts/location/:id', courts.location); //COMPLETE
+  app.get('/courts/images/:id', courts.images); //COMPLETE
+  app.get('/courts/comments/:id', courts.comments); //COMPLETE
 
-  app.post('/courts/comments/newcomment', comments.newComment);
-  app.post('/games/create', games.createGame);
+  app.post('/courts/comments/newcomment/:id', comments.newComment);
+  app.post('/games/create', games.createGame); //COMPLETE
 
 }
 

@@ -31,7 +31,7 @@
 
     <% courtdata.forEach(court => { %>
     <div class="btn-group btn-group-lg" role="group" aria-label="Basic example" style="display:flex; justify-content:center; margin: 120px auto 0px auto; max-width: 80%;">
-      <a href="/courts">
+      <a href="/courts/<%= court.id %>">
         <button type="button" class="btn btn-outline-primary btn-lg game-btn court-tabs" style="width:180px; border: 2px solid; border-radius: 10px 0px 0px 10px;">Games</button>
       </a>
       <a href="/courts/description/<%= court.id %>">
@@ -51,10 +51,12 @@
 
 
 
-    <form>
-      <div class="form-group">
-        <label for="exampleFormControlFile1">Example file input</label>
-        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+    <form style="display:flex; justify-content:center; max-width: 60%; margin: 40px auto;">
+      <div class="form-group text-center flex-col flex-center">
+        <h4 style="">Upload Court Image</h4>
+        <div>
+          <input type="file" class="form-control-file" style="text-align:center; margin: 20px auto 20px 130px;"></input>
+        </div>
       </div>
     </form>
 

@@ -61,8 +61,10 @@ module.exports = {
   },
 
   comments: (req,res) => {
-    knex('courts').where('id', req.params.id).then((results)=>{
-      res.render('tabs/comments', {courtdata: results})
+    knex('courts').where('id', req.params.id).then((results1)=>{
+      knex('comments').orderBy('created_at', 'desc').where('courts_id', req.params.id).then((results2)=>{
+        res.render('tabs/comments', {courtdata: results1, commentdata: results2})
+      })
     })
   }
 

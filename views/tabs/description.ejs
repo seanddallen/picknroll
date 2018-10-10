@@ -31,7 +31,7 @@
 
     <% courtdata.forEach(court => { %>
     <div class="btn-group btn-group-lg" role="group" aria-label="Basic example" style="display:flex; justify-content:center; margin: 120px auto 0px auto; max-width: 80%;">
-      <a href="/courts">
+      <a href="/courts/<%= court.id %>">
         <button type="button" class="btn btn-outline-primary btn-lg game-btn court-tabs" style="width:180px; border: 2px solid; border-radius: 10px 0px 0px 10px;">Games</button>
       </a>
       <a href="/courts/description/<%= court.id %>">
@@ -49,14 +49,18 @@
     </div>
     <% }) %>
 
-
-    <div class="jumbotron jumbotron-fluid">
+    <% courtdata.forEach(court => { %>
+    <div class="jumbotron jumbotron-fluid text-center" style="margin-top:40px;">
       <div class="container">
-        <h1 class="display-4">Fluid jumbotron</h1>
-        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+        <h1 class="display-5">Court Description</h1>
+        <p class="lead"><b>Name:</b> <%= court.court_name %> </p>
+        <p class="lead"><b>Address:</b> <%= court.court_address %> <%= court.court_city %> <%= court.court_state %> <%= court.court_zip %> </p>
+        <p class="lead"><b>Type:</b> <%= court.court_type %> </p>
+        <p class="lead"><b>Rim Count:</b> <%= court.rim_count %> </p>
+        <p class="lead"><b>Total Votes:</b> <%= court.votes %> </p>
       </div>
     </div>
-
+    <% }) %>
 
   </main>
 
