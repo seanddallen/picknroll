@@ -10,7 +10,6 @@ module.exports = {
       knex('users').where('user_city', req.session.user_city).then((results1)=>{
         knex('courts').orderBy('votes', 'desc').whereRaw('LOWER(court_city) LIKE ?', [req.session.user_city.toLowerCase()]).then((results2)=>{
          res.render('courts', {userdata:results1, courtdata:results2});
-         console.log(results1);
         })
       })
     }
@@ -19,7 +18,6 @@ module.exports = {
   search: (req,res) => {
     knex('courts').where('court_city', req.query.city).then(()=>{
       res.render('courts')
-      console.log(results);
     })
   },
 
