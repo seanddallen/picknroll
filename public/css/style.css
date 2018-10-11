@@ -197,3 +197,7 @@
 .court-tabs{
   box-shadow: 0px 10px 16px 0px rgba(0,0,0,0.4);
 }
+
+.greyout{
+  color: grey;
+}

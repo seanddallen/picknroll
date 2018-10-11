@@ -45,13 +45,16 @@ module.exports = {
 
   description: (req,res) => {
     knex('courts').where('id', req.params.id).then((results)=>{
-      res.render('tabs/description', {courtdata: results})
+      knex('users').where('user_city', req.session.user_city).then((results2)=>{
+        res.render('tabs/description', {courtdata: results, userdata:results2})
+        console.log(results2);
+      })
     })
   },
 
   location: (req,res) => {
     knex('courts').where('id', req.params.id).then((results)=>{
-      res.render('tabs/location', {courtdata: results})
+      res.render('tabs/location', {courtdata: results, userdata: results2})
     })
   },
 
