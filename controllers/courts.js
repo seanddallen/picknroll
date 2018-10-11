@@ -54,7 +54,7 @@ module.exports = {
 
   location: (req,res) => {
     knex('courts').where('id', req.params.id).then((results)=>{
-      res.render('tabs/location', {courtdata: results, userdata: results2})
+      res.render('tabs/location', {courtdata: results})
     })
   },
 
