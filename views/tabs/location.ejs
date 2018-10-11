@@ -57,29 +57,24 @@
     <div id="map" style="height: 400px; width: 60%; margin: 40px auto 40px auto;"></div>
     <script>
       function initMap(){
-        let options = {
-          zoom: 13,
-          center: {lat: 33.566925, lng:-112.057800} <%# court.address %>
-        }
+        let geocoder = new google.maps.Geocoder();
+        geocoder.geocode({ 'address': '<%= courtdata[0].court_address%>'}, (results, status)=>{
+          console.log(results);
+          let options = {
+            zoom: 14,
+            center: {lat: results[0].geometry.location.lat(), lng:results[0].geometry.location.lng()}
+          }
 
-        let map = new google.maps.Map(document.getElementById('map'), options);
-        let marker = new google.maps.Marker({
-          position: {lat: 33.566925, lng:-112.057800},
-          map: map,
-          icon: '/images/ball-icon.png'
+          let map = new google.maps.Map(document.getElementById('map'), options);
+          let marker = new google.maps.Marker({
+            position: {lat: results[0].geometry.location.lat(), lng:results[0].geometry.location.lng()},
+            map: map,
+            icon: '/images/ball-icon.png'
+          })
         })
+
       }
     </script>
-
-
-
-
-
-
-
-
-
-
 
 
 

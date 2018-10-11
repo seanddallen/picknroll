@@ -29,6 +29,16 @@
 .flex-start{
   justify-content: flex-start;
 }
+.pac-container{
+  z-index: 1060;
+}
+/* 
+#locationField {
+        position: relative;
+        width: 480px;
+        height: 20px;
+        margin-bottom: 2px;
+      } */
 
 #body{
   background-image: linear-gradient(to right, #dc7b1b 0%, rgba(255, 255, 255, 0) 35%), linear-gradient(to left, #dc7b1b 0%, rgba(255, 255, 255, 0) 35%);
