@@ -34,10 +34,10 @@
 
     <% courtdata.forEach(court => { %>
     <div class="btn-group btn-group-lg" role="group" aria-label="Basic example" style="display:flex; justify-content:center; margin: 120px auto 0px auto; max-width: 80%;">
-      <a href="/courts/<%= court.id %>">
+      <a href="/courts/games/<%= court.id %>">
         <button type="button" class="btn btn-outline-primary btn-lg game-btn court-tabs" style="width:180px; border: 2px solid; border-radius: 10px 0px 0px 10px;">Games</button>
       </a>
-      <a href="/courts/description/<%= court.id %>">
+      <a href="/courts/<%= court.id %>">
         <button type="button" class="btn btn-outline-primary btn-lg game-btn court-tabs" style="width:180px; border: 2px solid; border-radius: 0px 0px 0px 0px;">Description</button>
       </a>
       <a href="/courts/location/<%= court.id %>">
@@ -55,13 +55,13 @@
 
     <div class="btn-group btn-group-lg" role="group" aria-label="Basic example" style="display:flex; justify-content:center; margin: 20px auto 0px auto; max-width: 80%;">
 
-      <button id="checkin" type="button" class="btn btn-outline-primary btn-lg game-btn court-tabs" style="width:180px; border: 2px solid; border-radius: 10px 0px 0px 10px; background-color: green; color: black;">CHECK IN</button>
+      <button id="checkin" type="button" class="btn btn-outline-primary btn-lg game-btn court-tabs" style="width:180px; border: 2px solid; border-radius: 10px 0px 0px 10px; color: black;">CHECK IN</button>
 
 
-      <button id="rollin" type="button" class="btn btn-outline-primary btn-lg game-btn court-tabs" style="width:180px; border: 2px solid; border-radius: 0px 0px 0px 0px; background-color: yellow; color: black;">ROLLIN' UP</button>
+      <button id="rollin" type="button" class="btn btn-outline-primary btn-lg game-btn court-tabs" style="width:180px; border: 2px solid; border-radius: 0px 0px 0px 0px; color: black;">ROLLIN' UP</button>
 
 
-      <button id="checkout" type="button" class="btn btn-outline-primary btn-lg game-btn court-tabs" style="width:180px; border: 2px solid; border-radius: 0px 10px 10px 0px; background-color: red; color: black;">CHECK OUT</button>
+      <button id="checkout" type="button" class="btn btn-outline-primary btn-lg game-btn court-tabs" style="width:180px; border: 2px solid; border-radius: 0px 10px 10px 0px; color: black;">CHECK OUT</button>
 
     </div>
 
@@ -86,33 +86,51 @@
         <div class="card-header court-font">
           CHECKED IN
         </div>
-        <ul id="checkinlist" class="list-group-flush flex flex-col flex-wrap">
+        <div id="checkinlist" class="list-group-flush flex flex-col flex-wrap" style="margin-left: 20px; margin-top: 10px;">
+          <div><i class="fas fa-circle" style="margin-right:10px; color:limegreen; text-shadow: 0px 0px 15px green;"></i>Troy</div>
+          <div><i class="fas fa-circle" style="margin-right:10px; color:limegreen; text-shadow: 0px 0px 15px green;"></i>Jeff</div>
+          <div><i class="fas fa-circle" style="margin-right:10px; color:limegreen; text-shadow: 0px 0px 15px green;"></i>Richard</div>
+          <div><i class="fas fa-circle" style="margin-right:10px; color:limegreen; text-shadow: 0px 0px 15px green;"></i>Chris</div>
+          <div><i class="fas fa-circle" style="margin-right:10px; color:limegreen; text-shadow: 0px 0px 15px green;"></i>Frank</div>
+
           <script type="text/javascript">
             document.getElementById('checkin').addEventListener('click', () =>{
-              document.getElementById('checkinlist').innerHTML += `<li class=""style="list-style-type:none;"> <%= userdata[0].user_name %></i></li>`
-              document.getElementById('rollinlist').innerHTML = ''
+              document.getElementById('checkinlist').innerHTML += `<div><i class="fas fa-circle" style="margin-right:10px; color:limegreen; text-shadow: 0px 0px 15px green;"></i> <%= userdata[0].user_name %></div>`
+              document.getElementById('checkin').classList.add('green');
+              document.getElementById('rollin').classList.remove('yellow');
+              document.getElementById('checkout').classList.remove('red');
+              document.getElementById('rollinlist').lastChild.innerHTML = '';
             })
           </script>
+
           <script type="text/javascript">
             document.getElementById('checkout').addEventListener('click', () =>{
-              document.getElementById('checkinlist').innerHTML = ''
-              document.getElementById('rollinlist').innerHTML = ''
+              document.getElementById('checkout').classList.add('red');
+              document.getElementById('checkin').classList.remove('green');
+              document.getElementById('rollin').classList.remove('yellow');
+              document.getElementById('checkinlist').lastChild.innerHTML = '';
+              document.getElementById('rollinlist').lastChild.innerHTML = '';
+
             })
           </script>
-        </ul>
+        </div>
       </div>
 
       <div class="card col-lg-4 court-card" style="width: 18rem; border: 2px dotted #dc7b1b;">
         <div class="card-header court-font">
           ROLLIN' UP
         </div>
-        <ul id="rollinlist" class="list-group-flush flex flex-col flex-wrap">
+        <div id="rollinlist" class="list-group-flush flex flex-col flex-wrap" style="margin-left:40px; margin-top:10px;">
           <script type="text/javascript">
             document.getElementById('rollin').addEventListener('click', () =>{
-              document.getElementById('rollinlist').innerHTML += `<li class=""style="list-style-type:none;"> <%= userdata[0].user_name %></li>`
-              document.getElementById('checkinlist').innerHTML = ''
+              document.getElementById('rollinlist').innerHTML += `<div><i class="fas fa-circle" style="margin-right:10px; color:orange; text-shadow: 0px 0px 15px orange;"></i> <%= userdata[0].user_name %></div>`
+              document.getElementById('rollin').classList.add('yellow');
+              document.getElementById('checkin').classList.remove('green');
+              document.getElementById('checkout').classList.remove('red');
+              document.getElementById('checkinlist').lastChild.innerHTML = '';
+
               document.getElementById('checkin').classList.add('greyout')
-              document.getElementById('checkout').classList.add('greyout')
+              document.getElementById('checkout').classList.add('greyout')%>
             })
           </script>
         </ul>

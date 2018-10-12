@@ -23,7 +23,7 @@ module.exports = function(app){
   app.post('/courts/vote/:id', votes.courtVote); //COMPLETE
 
   app.get('/courts/:id', courts.courtPage); //COMPLETE
-  app.get('/courts/description/:id', courts.description); //COMPLETE
+  app.get('/courts/games/:id', courts.games); //COMPLETE
   app.get('/courts/location/:id', courts.location);
   app.get('/courts/comments/:id', courts.comments); //COMPLETE
 

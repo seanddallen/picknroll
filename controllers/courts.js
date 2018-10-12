@@ -37,16 +37,16 @@ module.exports = {
 
   courtPage: (req,res) => {
     knex('courts').where('id', req.params.id).then((results1)=>{
-      knex('games').where('courts_id', req.params.id).then((results2)=>{
-        res.render('court', {courtdata: results1, gamedata: results2})
+      knex('users').where('user_city', req.session.user_city).then((results2)=>{
+        res.render('tabs/description', {courtdata: results1, userdata:results2})
       })
     })
   },
 
-  description: (req,res) => {
-    knex('courts').where('id', req.params.id).then((results)=>{
-      knex('users').where('user_city', req.session.user_city).then((results2)=>{
-        res.render('tabs/description', {courtdata: results, userdata:results2})
+  games: (req,res) => {
+    knex('courts').where('id', req.params.id).then((results1)=>{
+      knex('games').where('courts_id', req.params.id).then((results2)=>{
+        res.render('court', {courtdata: results1, gamedata: results2})
       })
     })
   },

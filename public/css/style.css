@@ -32,7 +32,7 @@
 .pac-container{
   z-index: 1060;
 }
-/* 
+/*
 #locationField {
         position: relative;
         width: 480px;
@@ -200,4 +200,26 @@
 
 .greyout{
   color: grey;
+}
+
+.green{
+  background-color: limegreen;
+}
+
+.yellow{
+  background-color: yellow;
+}
+
+.red{
+  background-color: red;
+}
+
+#checkin:hover{
+  background-color: limegreen;
+}
+#checkout:hover{
+  background-color: red;
+}
+#rollin:hover{
+  background-color: yellow;
 }

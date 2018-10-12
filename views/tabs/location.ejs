@@ -34,10 +34,10 @@
 
     <% courtdata.forEach(court => { %>
     <div class="btn-group btn-group-lg" role="group" aria-label="Basic example" style="display:flex; justify-content:center; margin: 120px auto 0px auto; max-width: 80%;">
-      <a href="/courts/<%= court.id %>">
+      <a href="/courts/games/<%= court.id %>">
         <button type="button" class="btn btn-outline-primary btn-lg game-btn court-tabs" style="width:180px; border: 2px solid; border-radius: 10px 0px 0px 10px;">Games</button>
       </a>
-      <a href="/courts/description/<%= court.id %>">
+      <a href="/courts/<%= court.id %>">
         <button type="button" class="btn btn-outline-primary btn-lg game-btn court-tabs" style="width:180px; border: 2px solid; border-radius: 0px 0px 0px 0px;">Description</button>
       </a>
       <a href="/courts/location/<%= court.id %>">
