@@ -3,7 +3,7 @@ const knex = require("../db/knex.js");
 module.exports = {
   courtsPage: (req,res) => {
     if(req.query.city){
-      knex('courts').whereRaw('LOWER(court_city) LIKE ?', [req.query.city.toLowerCase()]).then((results)=>{
+      knex('courts').orderBy('votes', 'desc').whereRaw('LOWER(court_city) LIKE ?', [req.query.city.toLowerCase()]).then((results)=>{
         res.render('courts', {courtdata: results})
       })
     }else{
