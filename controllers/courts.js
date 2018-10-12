@@ -16,8 +16,8 @@ module.exports = {
   },
 
   search: (req,res) => {
-    knex('courts').where('court_city', req.query.city).then(()=>{
-      res.render('courts')
+    knex('courts').orderBy('votes', 'desc').where('court_city', req.query.city).then((results)=>{
+      res.render('courts', {courtdata: results});
     })
   },
 
@@ -26,8 +26,8 @@ module.exports = {
       court_name: req.body.courtname,
       court_address: req.body.courtaddress,
       court_city: req.body.courtcity,
-      court_state: req.body.courtstate,
-      court_zip: req.body.zip,
+      // court_state: req.body.courtstate,
+      // court_zip: req.body.zip,
       court_type: req.body.courttype,
       rim_count: req.body.rims
     }).then(()=>{
@@ -47,7 +47,6 @@ module.exports = {
     knex('courts').where('id', req.params.id).then((results)=>{
       knex('users').where('user_city', req.session.user_city).then((results2)=>{
         res.render('tabs/description', {courtdata: results, userdata:results2})
-        console.log(results2);
       })
     })
   },

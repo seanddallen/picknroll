@@ -56,7 +56,7 @@
               <div style="align-self: flex-end;">
                 <!-- <i class=" favorite fab fa-gratipay fa-2x grey"></i> -->
                 <form action="/courts/vote/<%= court.id %>" method="post">
-                  <button type="submit" class=" vote fas fa-arrow-alt-circle-up fa-2x grey" style="outline:none; border:none; background-color:#F8F8F8;"></button>
+                  <button type="submit" class="vote fas fa-arrow-alt-circle-up fa-2x grey" style="outline:none; border:none; background-color:#F8F8F8; margin-left:14px;"></button>
                 </form>
               </div>
           </div>
@@ -92,7 +92,7 @@
             <div class="form-group">
 
               <div id="locationField">
-                <input id="pac-input" class="controls" type="text" placeholder="Type Address" onFocus="geolocate()" style="width:100%; margin:10px auto; border-radius: 10px; outline:none;"></input>
+                <input id="pac-input" class="controls" type="text" name="courtaddress" placeholder="Type Address" onFocus="geolocate()" style="width:100%; margin:10px auto; border-radius: 10px; outline:none;"></input>
               </div>
               <script>
               var searchBox;
@@ -102,7 +102,7 @@
                   let input = document.getElementById('pac-input');
                   searchBox = new google.maps.places.Autocomplete(input, {types: ['geocode']});
 
-                  
+
                 }
                 function geolocate() {
                   if (navigator.geolocation) {
@@ -136,6 +136,7 @@
               <input type="text" name="zip" class="form-control" placeholder="Zip Code" style="margin-top:10px;">
               %>
 
+              <input type="text" name="courtcity" class="form-control" placeholder="City" style="margin-bottom:10px;">
               <input type="text" name="courtname" class="form-control" placeholder="Court Name" style="margin-top:0px;">
               <select id="inputRims" name="rims" class="form-control" style="margin-top:10px;">
                 <option selected>Rim Count</option>
